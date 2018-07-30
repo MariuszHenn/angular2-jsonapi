@@ -2,8 +2,9 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angul
 import { Injectable } from '@angular/core';
 import find from 'lodash-es/find';
 import * as qs from 'qs';
-import { of, throwError } from 'rxjs';
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs/internal/observable';
+import { throwError } from 'rxjs/internal/observable/throwError';
+import { of } from 'rxjs/internal/observable/of';
 import { catchError, map } from 'rxjs/operators';
 import { AttributeMetadata } from '../constants/symbols';
 import { DatastoreConfig } from '../interfaces/datastore-config.interface';
