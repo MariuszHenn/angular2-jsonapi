@@ -4,6 +4,9 @@ npm-debug.log
 
 # TypeScript
 src/compiled
- .gitignore
 
- /dist/node_modules
+ dist/node_modules
+
+ /.idea
+ /coverage
+

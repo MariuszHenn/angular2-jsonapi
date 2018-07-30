@@ -1,8 +1,6 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/internal/observable';
-import { DatastoreConfig } from '../interfaces/datastore-config.interface';
-import { JsonApiQueryData } from '../models/json-api-query-data';
-import { JsonApiModel } from '../models/json-api.model';
+import { Observable } from 'rxjs/internal/Observable';
+import { DatastoreConfig, JsonApiQueryData, JsonApiModel } from '..';
 export declare type ModelType<T extends JsonApiModel> = {
     new (datastore: JsonApiDatastore, data: any): T;
 };

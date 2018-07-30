@@ -8,9 +8,7 @@ var throwError_1 = require("rxjs/internal/observable/throwError");
 var of_1 = require("rxjs/internal/observable/of");
 var operators_1 = require("rxjs/operators");
 var symbols_1 = require("../constants/symbols");
-var error_response_model_1 = require("../models/error-response.model");
-var json_api_query_data_1 = require("../models/json-api-query-data");
-var json_api_model_1 = require("../models/json-api.model");
+var __1 = require("..");
 var JsonApiDatastore = /** @class */ (function () {
     // tslint:enable:max-line-length
     function JsonApiDatastore(http) {
@@ -180,7 +178,7 @@ var JsonApiDatastore = /** @class */ (function () {
         var relationships;
         for (var key in data) {
             if (data.hasOwnProperty(key)) {
-                if (data[key] instanceof json_api_model_1.JsonApiModel) {
+                if (data[key] instanceof __1.JsonApiModel) {
                     relationships = relationships || {};
                     if (data[key].id) {
                         relationships[key] = {
@@ -202,7 +200,7 @@ var JsonApiDatastore = /** @class */ (function () {
         return relationships;
     };
     JsonApiDatastore.prototype.isValidToManyRelation = function (objects) {
-        var isJsonApiModel = objects.every(function (item) { return item instanceof json_api_model_1.JsonApiModel; });
+        var isJsonApiModel = objects.every(function (item) { return item instanceof __1.JsonApiModel; });
         var relationshipType = isJsonApiModel ? objects[0].modelConfig.type : '';
         return isJsonApiModel ? objects.every(function (item) { return item.modelConfig.type === relationshipType; }) : false;
     };
@@ -232,7 +230,7 @@ var JsonApiDatastore = /** @class */ (function () {
             models.push(model);
         });
         if (withMeta && withMeta === true) {
-            return new json_api_query_data_1.JsonApiQueryData(models, this.parseMeta(body, modelType));
+            return new __1.JsonApiQueryData(models, this.parseMeta(body, modelType));
         }
         return models;
     };
@@ -267,7 +265,7 @@ var JsonApiDatastore = /** @class */ (function () {
             error.error instanceof Object &&
             error.error.errors &&
             error.error.errors instanceof Array) {
-            var errors = new error_response_model_1.ErrorResponse(error.error.errors);
+            var errors = new __1.ErrorResponse(error.error.errors);
             console.error(error, errors);
             return throwError_1.throwError(errors);
         }

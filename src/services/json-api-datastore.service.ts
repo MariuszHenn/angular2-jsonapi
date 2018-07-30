@@ -2,16 +2,12 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angul
 import { Injectable } from '@angular/core';
 import find from 'lodash-es/find';
 import * as qs from 'qs';
-import { Observable } from 'rxjs/internal/observable';
+import { Observable } from 'rxjs/internal/Observable';
 import { throwError } from 'rxjs/internal/observable/throwError';
 import { of } from 'rxjs/internal/observable/of';
 import { catchError, map } from 'rxjs/operators';
 import { AttributeMetadata } from '../constants/symbols';
-import { DatastoreConfig } from '../interfaces/datastore-config.interface';
-import { ModelConfig } from '../interfaces/model-config.interface';
-import { ErrorResponse } from '../models/error-response.model';
-import { JsonApiQueryData } from '../models/json-api-query-data';
-import { JsonApiModel } from '../models/json-api.model';
+import { DatastoreConfig, ModelConfig,  ErrorResponse, JsonApiQueryData,  JsonApiModel } from '..';
 
 export type ModelType<T extends JsonApiModel> = { new(datastore: JsonApiDatastore, data: any): T; };
 
