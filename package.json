@@ -30,8 +30,8 @@
   "bugs": {
     "url": "https://github.com/ghidoz/angular2-jsonapi/issues"
   },
-  "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "main": "./dist/src/index.js",
+  "typings": "./dist/src/index.d.ts",
   "dependencies": {
     "date-fns": "^1.29.0",
     "lodash-es": "^4.17.4",
