@@ -1,8 +1,11 @@
 import find from 'lodash-es/find';
 import includes from 'lodash-es/includes';
-import { Observable } from 'rxjs/Observable';
-import { JsonApiDatastore, ModelType } from '../services/json-api-datastore.service';
-import { ModelConfig } from '../interfaces/model-config.interface';
+import { Observable } from 'rxjs/internal/Observable';
+
+
+
+import { JsonApiDatastore, ModelType, ModelConfig } from '..';
+
 import * as _ from 'lodash';
 import { AttributeMetadata } from '../constants/symbols';
 

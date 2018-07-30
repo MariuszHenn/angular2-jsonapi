@@ -204,7 +204,7 @@ describe('JsonApiDatastore', () => {
       };
 
       datastore.query(Author).subscribe(
-        (authors) => fail('onNext has been called'),
+        authors => fail('onNext has been called'),
         (response) => {
           expect(response).toEqual(jasmine.any(ErrorResponse));
           expect(response.errors.length).toEqual(1);
@@ -327,7 +327,7 @@ describe('JsonApiDatastore', () => {
 
       author.save().subscribe(
         () => fail('should throw error'),
-        (error) => expect(error).toEqual(new Error('no body in response'))
+        error => expect(error).toEqual(new Error('no body in response'))
       );
 
       const saveRequest = httpMock.expectOne({ method: 'POST', url: expectedUrl });
@@ -342,7 +342,7 @@ describe('JsonApiDatastore', () => {
 
       author.save().subscribe(
         () => fail('should throw error'),
-        (error) => expect(error).toEqual(new Error('expected data in response'))
+        error => expect(error).toEqual(new Error('expected data in response'))
       );
 
       const saveRequest = httpMock.expectOne({ method: 'POST', url: expectedUrl });
